@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>BoozeCalc</title>
+  <meta name="description" content="A basic calculator for determining alcohol volume per currency unit.">
+  <meta name="author" content="Malagrond">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div id="wrapper">
+  <table border="0" cellpadding="1" cellspacing="1">
+    <tr>
+      <td>
+        Drink Volume:
+      </td>
+      <td>
+        <input type="text" id="dVol" /> oz/ml
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ABV or Proof ÷ 2:
+      </td>
+      <td>
+        <input type="text" id="dABV" /> % ABV (eg, 40)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Price per drink: 
+      </td>
+      <td>
+        <input type="text" id="dPrice" /> $/£/€/etc
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button id="calcValue">Calculate Value</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Drink Price per Fl Oz/Ml: <span id="dValue"></span>
+      </td>
+    </tr>
+  </table>
+</div>
+      
+
+<script>
+  $("#calcValue").click(function(){
+    $("#dValue").html($("#dPrice").val()/($("#dVol").val()*($("#dABV").val()/100)));
+    });
+    
+</script>
+</body>
+</html>
